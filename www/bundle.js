@@ -65,14 +65,22 @@
 
 	var _Counter2 = _interopRequireDefault(_Counter);
 
+	var _App = __webpack_require__(180);
+
+	var _App2 = _interopRequireDefault(_App);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	console.log('hello world'); // var React = require('react');
+	// console.log(App);
+
+	//App is not defined below - need to figure out why.
+
+	// var React = require('react');
 	// var ReactDOM = require('react-dom');
 	// var Counter = require('./Counter');
 
 	document.addEventListener('DOMContentLoaded', function () {
-	  _reactDom2.default.render(_react2.default.createElement(_Counter2.default), document.getElementById('mount'));
+	  _reactDom2.default.render(_react2.default.createElement(_App2.default, { searchPokemon: exampleData }), document.getElementById('app'));
 	});
 
 /***/ },
@@ -21504,13 +21512,11 @@
 
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } // var React = require('react');
-
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	/*
 	 *  A counter button: tap the button to increase the count.
 	 */
-
 	var Counter = function (_React$Component) {
 	  _inherits(Counter, _React$Component);
 
@@ -21547,6 +21553,76 @@
 	}(_react2.default.Component);
 
 	exports.default = Counter;
+
+/***/ },
+/* 180 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _Counter = __webpack_require__(179);
+
+	var _Counter2 = _interopRequireDefault(_Counter);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var React = __webpack_require__(2);
+	var ReactDOM = __webpack_require__(33);
+
+	var App = function (_React$Component) {
+	  _inherits(App, _React$Component);
+
+	  function App(props) {
+	    _classCallCheck(this, App);
+
+	    var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
+
+	    _this.state = {
+	      pokemonList: {},
+	      selectedPokemon: ''
+	    };
+	    return _this;
+	  }
+	  // this.handlers = {
+	  //   onVLEClick: (event) => {
+	  //     this.setState({selectedPokemon: 1})
+	  //   }
+	  // }
+
+	  _createClass(App, [{
+	    key: 'render',
+	    value: function render() {
+	      return React.createElement(
+	        'div',
+	        null,
+	        React.createElement(_Counter2.default, null),
+	        React.createElement('div', { 'class': 'nav' }),
+	        React.createElement(
+	          'div',
+	          { 'class': 'filter' },
+	          React.createElement('div', { 'class': 'type' })
+	        ),
+	        React.createElement('div', { 'class': 'pokemonList' })
+	      );
+	    }
+	  }]);
+
+	  return App;
+	}(React.Component);
+
+	exports.default = App;
 
 /***/ }
 /******/ ]);
