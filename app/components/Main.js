@@ -1,20 +1,18 @@
-var React = require('react');
-var ReactDOM = require('react-dom');
+// var React = require('react');
+// var ReactDOM = require('react-dom');
+// var Counter = require('./Counter');
 
-var Main = React.createClass({
-  render: function() {
-    return (
-      <div>
-        Wrapper
-        <h1>
-        Header Space
-        </h1>
-        <div>
-          Hello World!
-        </div>
-      </div>
-    )
-  }
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Counter from './Counter';
+
+console.log('hello world');
+
+console.log(React)
+
+document.addEventListener('DOMContentLoaded', function() {
+  ReactDOM.render(
+    React.createElement(Counter),
+    document.getElementById('mount')
+  );
 });
-
-ReactDOM.render(<Main />, document.getElementById('app'));

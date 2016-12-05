@@ -18,11 +18,13 @@
     "babel-core": "^6.18.2",
     "babel-loader": "^6.2.8",
     "babel-preset-es": "^1.0.0",
-    "babel-preset-react": "^6.16.0"
+    "babel-preset-react": "^6.16.0",
+    "babel-watch": "^2.0.3"
   },
   "scripts": {
     "test": "echo \"Error: no tests specified\" && exit 1",
     "start": "nodemon server.js",
+    "start": "babel-watch server.js && nodemon server.js",
     "compile": "webpack"
   },
   "author": "",

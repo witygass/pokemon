@@ -1,19 +1,28 @@
-module.exports = {
-  entry: './app/components/Main.js',
+var path = require('path');
+
+var config = {
+  context: path.join(__dirname, 'app'),
+  entry: [
+    './components/main.js'
+  ],
   output: {
-    path: __dirname,
-    filename: 'bundle.js'
+    path: path.join(__dirname, 'www'),
+    filename: 'bundle.js',
   },
   module: {
     loaders: [
       {
-        test: /\.jsx?$/,
-        exclude: /(node_modules|bower_components)/,
-        loader: 'babel',
-        query: {
-          presets: ['react', 'es2015']
-        }
-      }
-    ]
-  }
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loaders: ['babel'],
+      },
+    ],
+  },
+  resolveLoader: {
+    root: [
+      path.join(__dirname, 'node_modules'),
+    ],
+  },
 };
+
+module.exports = config;

@@ -11,8 +11,7 @@ app.use(express.static(__dirname + '/www'));
 //   res.render('index.html');
 // });
 
-console.log('dirname: ', __dirname);
-// console.log('compiler: ', compiler);
+// console.log('dirname: ', __dirname);
 
 app.use(webpackDevMiddleware(compiler, {
   hot: true,
@@ -27,5 +26,5 @@ app.use(webpackDevMiddleware(compiler, {
 var server = app.listen(3000, function() {
   var host = server.address().address;
   var port = server.address().port;
-  console.log('Express app listening at http://%s:%s', host, port);
+  console.log('Express app listening at http://localhost:', /*host,*/ port);
 });

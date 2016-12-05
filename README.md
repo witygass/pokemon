@@ -7,4 +7,7 @@ Welcome!
 
 Setup:
 
-<!-- npm install -->
+```
+npm install
+npm run compile
+```
