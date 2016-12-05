@@ -7,11 +7,6 @@ var app = express();
 var compiler = webpack(webpackConfig);
 
 app.use(express.static(__dirname + '/www'));
-// app.get('/www', function(req, res) {
-//   res.render('index.html');
-// });
-
-// console.log('dirname: ', __dirname);
 
 app.use(webpackDevMiddleware(compiler, {
   hot: true,

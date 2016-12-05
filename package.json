@@ -24,7 +24,6 @@
   "scripts": {
     "test": "echo \"Error: no tests specified\" && exit 1",
     "start": "nodemon server.js",
-    "start": "babel-watch server.js && nodemon server.js",
     "compile": "webpack"
   },
   "author": "",
