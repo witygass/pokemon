@@ -5,7 +5,13 @@ var Main = React.createClass({
   render: function() {
     return (
       <div>
-        Hello World
+        Wrapper
+        <h1>
+        Header Space
+        </h1>
+        <div>
+          Hello World!
+        </div>
       </div>
     )
   }
