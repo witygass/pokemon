@@ -3,16 +3,24 @@ var Schema = mongoose.Schema;
 
 // START WORKING HERE
 var pokemonSchema = new Schema({
-  id: Number,
-  abilities: [{name:String, url:String}],
+  id: {type: Number, unique:true, required: true, dropDups: true},
+  abilities: [],
   name: String,
   location_area_encounters: String,
-  types: [{type: Object}]
+  types: []
 });
 
 var Pokemon = mongoose.model('Pokemon', pokemonSchema);
 
+var queryForPokemonBy = function(options = {}, cb) {
+  console.log('calling query!!!')
+  Pokemon.find(options)
+    .then(cb)
+    .catch(function(err) {console.log(err)})
+}
+
 module.exports.Pokemon = Pokemon;
+module.exports.queryForPokemonBy = queryForPokemonBy;
 
 //
 // ///////////// POKEMON OBJECT MAP /////////////
