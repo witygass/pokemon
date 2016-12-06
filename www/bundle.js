@@ -61,23 +61,17 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _Counter = __webpack_require__(179);
-
-	var _Counter2 = _interopRequireDefault(_Counter);
-
-	var _App = __webpack_require__(180);
+	var _App = __webpack_require__(179);
 
 	var _App2 = _interopRequireDefault(_App);
 
+	var _searchPokemon = __webpack_require__(183);
+
+	var _searchPokemon2 = _interopRequireDefault(_searchPokemon);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	// console.log(App);
-
 	//App is not defined below - need to figure out why.
-
-	// var React = require('react');
-	// var ReactDOM = require('react-dom');
-	// var Counter = require('./Counter');
 
 	document.addEventListener('DOMContentLoaded', function () {
 	  _reactDom2.default.render(_react2.default.createElement(_App2.default, { searchPokemon: exampleData }), document.getElementById('app'));
@@ -21506,6 +21500,88 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _reactDom = __webpack_require__(33);
+
+	var _reactDom2 = _interopRequireDefault(_reactDom);
+
+	var _Counter = __webpack_require__(180);
+
+	var _Counter2 = _interopRequireDefault(_Counter);
+
+	var _PokemonList = __webpack_require__(181);
+
+	var _PokemonList2 = _interopRequireDefault(_PokemonList);
+
+	var _searchPokemon = __webpack_require__(183);
+
+	var _searchPokemon2 = _interopRequireDefault(_searchPokemon);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var App = function (_React$Component) {
+	  _inherits(App, _React$Component);
+
+	  function App(props) {
+	    _classCallCheck(this, App);
+
+	    var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
+
+	    _this.state = {
+	      pokemonList: _this.props.searchPokemon,
+	      //parameter to filter by => object?
+	      filterBy: '',
+	      //pokemon to display at top => object
+	      selectedPokemon: ''
+	    };
+	    // this.handlers = {
+	    //   onVLEClick: (event) => {
+	    //     this.setState({selectedPokemon: 1})
+	    //   }
+	    // }
+	    return _this;
+	  }
+
+	  _createClass(App, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement(
+	        'div',
+	        null,
+	        _react2.default.createElement(_Counter2.default, null),
+	        _react2.default.createElement('div', { className: 'navIncludesTypeAndSearchFilters' }),
+	        _react2.default.createElement('div', { className: 'viewContainsAllDetails' }),
+	        _react2.default.createElement(_PokemonList2.default, { pokemon: this.state.pokemonList })
+	      );
+	    }
+	  }]);
+
+	  return App;
+	}(_react2.default.Component);
+
+	exports.default = App;
+
+/***/ },
+/* 180 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(2);
+
+	var _react2 = _interopRequireDefault(_react);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -21520,10 +21596,10 @@
 	var Counter = function (_React$Component) {
 	  _inherits(Counter, _React$Component);
 
-	  function Counter() {
+	  function Counter(props) {
 	    _classCallCheck(this, Counter);
 
-	    var _this = _possibleConstructorReturn(this, (Counter.__proto__ || Object.getPrototypeOf(Counter)).call(this));
+	    var _this = _possibleConstructorReturn(this, (Counter.__proto__ || Object.getPrototypeOf(Counter)).call(this, props));
 
 	    _this.state = {
 	      count: 0
@@ -21555,7 +21631,7 @@
 	exports.default = Counter;
 
 /***/ },
-/* 180 */
+/* 181 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -21564,65 +21640,87 @@
 	  value: true
 	});
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	var _react = __webpack_require__(2);
 
-	var _Counter = __webpack_require__(179);
+	var _react2 = _interopRequireDefault(_react);
 
-	var _Counter2 = _interopRequireDefault(_Counter);
+	var _PokemonListEntry = __webpack_require__(182);
+
+	var _PokemonListEntry2 = _interopRequireDefault(_PokemonListEntry);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	var PokemonList = function PokemonList(props) {
+	  return console.log(props), _react2.default.createElement(
+	    'div',
+	    { className: 'pokemon-list' },
+	    props.pokemon.map(function (obj) {
+	      return _react2.default.createElement(_PokemonListEntry2.default, { key: obj.id, singlePokemon: obj });
+	    })
+	  );
+	};
 
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	// {[{id:1},{id:2},{id:3}].map(el => <div key={el.id}>{el.id}</div>)}
 
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	exports.default = PokemonList;
 
-	var React = __webpack_require__(2);
-	var ReactDOM = __webpack_require__(33);
+/***/ },
+/* 182 */
+/***/ function(module, exports, __webpack_require__) {
 
-	var App = function (_React$Component) {
-	  _inherits(App, _React$Component);
+	"use strict";
 
-	  function App(props) {
-	    _classCallCheck(this, App);
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
 
-	    var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
+	var _react = __webpack_require__(2);
 
-	    _this.state = {
-	      pokemonList: {},
-	      selectedPokemon: ''
-	    };
-	    return _this;
-	  }
-	  // this.handlers = {
-	  //   onVLEClick: (event) => {
-	  //     this.setState({selectedPokemon: 1})
-	  //   }
-	  // }
+	var _react2 = _interopRequireDefault(_react);
 
-	  _createClass(App, [{
-	    key: 'render',
-	    value: function render() {
-	      return React.createElement(
-	        'div',
-	        null,
-	        React.createElement(_Counter2.default, null),
-	        React.createElement('div', { 'class': 'nav' }),
-	        React.createElement(
-	          'div',
-	          { 'class': 'filter' },
-	          React.createElement('div', { 'class': 'type' })
-	        ),
-	        React.createElement('div', { 'class': 'pokemonList' })
-	      );
-	    }
-	  }]);
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	  return App;
-	}(React.Component);
+	var PokemonListEntry = function PokemonListEntry(props) {
+	  return console.log(props), _react2.default.createElement(
+	    "div",
+	    { className: "list-entry" },
+	    _react2.default.createElement(
+	      "div",
+	      null,
+	      _react2.default.createElement("img", { className: "list-image", src: props.singlePokemon.sprites.front_default })
+	    )
+	  );
+	};
 
-	exports.default = App;
+	exports.default = PokemonListEntry;
+
+/***/ },
+/* 183 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	var searchPokemon = function searchPokemon(options, callback) {
+	  console.log('searching for pokemon');
+	  // $.ajax({
+	  //   cache: true, //research this
+	  //   data: $.extend({
+	  //     key:options.key,
+	  //     q: options.query,
+	  //     part: 'snippet' // DATA IS SENT TO THE API
+	  //   },
+	  //   {
+	  //     maxResults: options.max,
+	  //     type:'pokemon',
+	  //     pageToken: $('#pageToken').val()}),
+	  //   dataType: 'json',
+	  //   type: 'GET',
+	  //   timeout: 5000,
+	  //   url: 'http://pokeapi.co/api/v2/'
+	  // });
+	};
+
+	window.searchPokemon = searchPokemon;
 
 /***/ }
 /******/ ]);

@@ -1,13 +1,7 @@
-// var React = require('react');
-// var ReactDOM = require('react-dom');
-// var Counter = require('./Counter');
-
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Counter from './Counter';
 import App from './App';
-
-// console.log(App);
+import searchPokemon from '../lib/searchPokemon'
 
 //App is not defined below - need to figure out why.
 

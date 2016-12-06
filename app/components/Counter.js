@@ -3,8 +3,8 @@ import React from 'react';
  *  A counter button: tap the button to increase the count.
  */
 class Counter extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       count: 0,
     };
@@ -23,4 +23,4 @@ class Counter extends React.Component {
   }
 }
 
-export default Counter;
+export default Counter

@@ -1,0 +1,19 @@
+img {
+	display: block;
+	margin: auto;
+}
+.pokemon-list{
+	margin: auto;
+	width: 75%;
+	/*border: 1px solid black;*/
+	overflow: hidden;
+	text-align: center;
+}
+.list-entry {
+	margin: 5px;
+	max-width: 100px;
+	border: 2px solid tan;
+	border-radius: 15px;
+	display: inline-block;
+	overflow: hidden;
+}

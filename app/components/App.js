@@ -1,33 +1,38 @@
-var React = require('react');
-var ReactDOM = require('react-dom');
+import React from 'react';
+import ReactDOM from 'react-dom';
 import Counter from './Counter';
+import PokemonList from './PokemonList';
+import searchPokemon from '../lib/searchPokemon'
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      pokemonList: {},
+      pokemonList: this.props.searchPokemon,
+      //parameter to filter by => object?
+      filterBy: '',
+      //pokemon to display at top => object
       selectedPokemon: ''
-    }
+    };
+    // this.handlers = {
+    //   onVLEClick: (event) => {
+    //     this.setState({selectedPokemon: 1})
+    //   }
+    // }
   }
-  // this.handlers = {
-  //   onVLEClick: (event) => {
-  //     this.setState({selectedPokemon: 1})
-  //   }
-  // }
+
 
   render() {
     return (
       <div>
         <Counter />
-        <div class="nav"></div>
-        <div class="filter">
-          <div class="type"></div>
+        <div className="navIncludesTypeAndSearchFilters"></div>
+        <div className="viewContainsAllDetails">
         </div>
-        <div class="pokemonList"></div>
+        <PokemonList pokemon={this.state.pokemonList} />
       </div>
     )
   }
 }
 
-export default App;
+export default App
