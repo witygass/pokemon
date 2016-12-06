@@ -1,21 +1,14 @@
+import $ from 'jquery';
+
 var searchPokemon = (options, callback) => {
-  console.log('searching for pokemon')
-  // $.ajax({
-  //   cache: true, //research this
-  //   data: $.extend({
-  //     key:options.key,
-  //     q: options.query,
-  //     part: 'snippet' // DATA IS SENT TO THE API
-  //   },
-  //   {
-  //     maxResults: options.max,
-  //     type:'pokemon',
-  //     pageToken: $('#pageToken').val()}),
-  //   dataType: 'json',
-  //   type: 'GET',
-  //   timeout: 5000,
-  //   url: 'http://pokeapi.co/api/v2/'
-  // });
+  $.get({
+    url: 'http://pokeapi.co/api/v2/pokemon/' + options.pokmonid.toString(),
+    }
+  }, function(data, err) {
+    if (err) {console.log('there was an error fetching pokeapi data', err)}
+    console.log(data);
+    var Pokemon = mongoose.model('Pokemon', pokemonSchema);
+  })
 };
 
-window.searchPokemon = searchPokemon;
+export default searchPokemon;

@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Counter from './Counter';
 import PokemonList from './PokemonList';
-import searchPokemon from '../lib/searchPokemon'
+import searchPokemon from '../lib/searchPokemon';
 
 class App extends React.Component {
   constructor(props) {
@@ -23,6 +23,7 @@ class App extends React.Component {
 
 
   render() {
+    searchPokemon();
     return (
       <div>
         <Counter />

@@ -11,9 +11,13 @@ img {
 }
 .list-entry {
 	margin: 5px;
-	max-width: 100px;
-	border: 2px solid tan;
-	border-radius: 15px;
+	min-width: 115px;
+	border: 2px solid #ebeef4;
+	border-radius: 10px;
 	display: inline-block;
 	overflow: hidden;
+}
+.list-name {
+	color: #000000;
+	font-family: “Century Gothic”, CenturyGothic, AppleGothic, sans-serif;
 }
