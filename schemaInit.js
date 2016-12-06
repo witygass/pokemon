@@ -1,16 +1,5 @@
-import searchPokemon from './searchPokemon';
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
-
-//CHECK THIS!!! - not sure about localhost:port
-mongoose.connect('mongodb://localhost/pokemon');
-
-var db = mongoose.connection;
-
-db.on('error', console.error.bind(console, 'connection error: '));
-db.once('open', function() {
-  console.log('connected to mongo via mongoose');
-});
 
 // START WORKING HERE
 var pokemonSchema = new Schema({
@@ -18,13 +7,12 @@ var pokemonSchema = new Schema({
   abilities: [{name:String, url:String}],
   name: String,
   location_area_encounters: String,
-  types: [{type:{name:String}}]
+  types: [{type: Object}]
 });
 
 var Pokemon = mongoose.model('Pokemon', pokemonSchema);
 
-
-
+module.exports.Pokemon = Pokemon;
 
 //
 // ///////////// POKEMON OBJECT MAP /////////////

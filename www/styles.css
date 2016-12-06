@@ -2,11 +2,17 @@ img {
 	display: block;
 	margin: auto;
 }
+body {
+	background-image: url("/resources/cork-wallet.png");
+	height: 100%;
+}
 .pokemon-list{
+	background-color: white;
 	margin: auto;
-	width: 75%;
+	width: 80%;
 	/*border: 1px solid black;*/
 	overflow: hidden;
+	height: 100%;
 	text-align: center;
 }
 .list-entry {
