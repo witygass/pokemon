@@ -43,7 +43,6 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Counter />
         <div className="navIncludesTypeAndSearchFilters"></div>
         <div className="viewContainsAllDetails">
         </div>

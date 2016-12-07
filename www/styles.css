@@ -3,6 +3,7 @@ img {
 	margin: auto;
 }
 body {
+	text-align: center;
 	background-image: url("/resources/cork-wallet.png");
 	height: 100%;
 }
@@ -27,6 +28,7 @@ body {
 	background-color: #eaf2ff;
 }
 .list-name {
+	margin-bottom: 5px;
 	color: #375482;
 	font-family: “Century Gothic”, CenturyGothic, AppleGothic, sans-serif;
 }
