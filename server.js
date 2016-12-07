@@ -43,24 +43,25 @@ app.get('/init', jsonParser, function(req, res) {
   // pokemonSchema.query.byName = function(name) {
   //   return this.find({name:})
   // };
-
-  // for (var i = 0; i < 152; i++) {
-    request('http://pokeapi.co/api/v2/pokemon/1' /*+ i.toString()*/,
-    function(error, response, body) {
-      if (error) {console.log(error)}
-      var parsedBody = JSON.parse(body);
-      var thisPokemon = new models.Pokemon(parsedBody)
-      console.log(thisPokemon);
-      thisPokemon.save(function(err, savedModel){
-        if(err) {console.log('error saving model', err)}
-        else {
-          console.log('model was saved');
-        }
-      });
-      // console.log(parsedBody);
-      // res.send(parsedBody);
-    })
-  // }
+setInterval(function(){
+    for (var i = 0; i < 152; i++) {
+      request('http://pokeapi.co/api/v2/pokemon/' + i.toString(),
+      function(error, response, body) {
+        if (error) {console.log(error)}
+        var parsedBody = JSON.parse(body);
+        var thisPokemon = new models.Pokemon(parsedBody)
+        console.log(thisPokemon);
+        thisPokemon.save(function(err, savedModel){
+          if(err) {console.log('error saving model', err)}
+          else {
+            console.log('model was saved');
+          }
+        });
+        // console.log(parsedBody);
+        // res.send(parsedBody);
+      })
+    }
+  }, 1000).bind(null, i);
 });
 
 app.use(express.static(__dirname + '/www'));

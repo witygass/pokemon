@@ -2,16 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Counter from './Counter';
 import PokemonList from './PokemonList';
-// import searchPokemon from '../lib/searchPokemon';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       pokemonList: this.props.searchPokemon,
-      //parameter to filter by => object?
       filterBy: '',
-      //pokemon to display at top => object
       selectedPokemon: ''
     };
     // this.handlers = {
@@ -21,9 +18,29 @@ class App extends React.Component {
     // }
   }
 
+  componentWillMount() {
+    var context = this;
+    console.log('fetching pokemon');
+    fetch('/pokemon', {
+      method:'get'
+    })
+    .then(function(response){
+      var pokemons = response.json();
+      // This returns a 'pending' promise
+      // wait for it to fully return before trying to render
+      // console.log(pokemons);
+      return pokemons;
+    })
+    .then(function(resultArray) {
+      // console.log(resultArray);
+      context.setState({pokemonList: resultArray})
+    })
+    .catch(function(err){
+      console.log(err)
+    });
+  }
 
   render() {
-    // searchPokemon();
     return (
       <div>
         <Counter />

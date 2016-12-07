@@ -7,14 +7,15 @@ var pokemonSchema = new Schema({
   abilities: [],
   name: String,
   location_area_encounters: String,
-  types: []
+  types: [],
+  sprites: []
 });
 
 var Pokemon = mongoose.model('Pokemon', pokemonSchema);
 
 var queryForPokemonBy = function(options = {}, cb) {
   console.log('calling query!!!')
-  Pokemon.find(options)
+  Pokemon.find(options).sort({id:1})
     .then(cb)
     .catch(function(err) {console.log(err)})
 }
@@ -22,9 +23,7 @@ var queryForPokemonBy = function(options = {}, cb) {
 module.exports.Pokemon = Pokemon;
 module.exports.queryForPokemonBy = queryForPokemonBy;
 
-//
 // ///////////// POKEMON OBJECT MAP /////////////
-// Object
 // abilities:Array[2]
 // base_experience:240
 // forms:Array[1]
