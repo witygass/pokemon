@@ -20,7 +20,7 @@ class App extends React.Component {
 
   componentWillMount() {
     var context = this;
-    console.log('fetching pokemon');
+    console.log('App component: fetching pokemon from mongo');
     fetch('/pokemon', {
       method:'get'
     })

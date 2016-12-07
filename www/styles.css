@@ -9,7 +9,7 @@ body {
 .pokemon-list{
 	background-color: white;
 	margin: auto;
-	width: 80%;
+	width: 85%;
 	/*border: 1px solid black;*/
 	overflow: hidden;
 	height: 100%;
@@ -23,7 +23,10 @@ body {
 	display: inline-block;
 	overflow: hidden;
 }
+.list-entry:hover{
+	background-color: #eaf2ff;
+}
 .list-name {
-	color: #000000;
+	color: #375482;
 	font-family: “Century Gothic”, CenturyGothic, AppleGothic, sans-serif;
 }

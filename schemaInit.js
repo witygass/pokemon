@@ -14,7 +14,7 @@ var pokemonSchema = new Schema({
 var Pokemon = mongoose.model('Pokemon', pokemonSchema);
 
 var queryForPokemonBy = function(options = {}, cb) {
-  console.log('calling query!!!')
+  console.log('Mongoose: searching mongo for pokemon')
   Pokemon.find(options).sort({id:1})
     .then(cb)
     .catch(function(err) {console.log(err)})
