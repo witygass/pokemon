@@ -5,6 +5,7 @@ var mongoose = require('mongoose');
 var request = require('request');
 var bodyParser = require('body-parser');
 var Promise = require('bluebird');
+var favicon = require('serve-favicon');
 var webpackConfig = require ('./webpack.config.js');
 var models = require('./schemaInit');
 var jsonParser = bodyParser.json();
@@ -18,8 +19,9 @@ db.once('open', function() {
   console.log('connected to mongo via mongoose');
 });
 ////
-
 var compiler = webpack(webpackConfig);
+
+app.use(favicon(__dirname + '/www/resources/favicon.ico'));
 
 app.use(webpackDevMiddleware(compiler, {
   hot: true,
@@ -43,7 +45,6 @@ app.get('/init', jsonParser, function(req, res) {
   // pokemonSchema.query.byName = function(name) {
   //   return this.find({name:})
   // };
-  console.log('in init');
   for (var i = 1; i <= 151; i++) {
     console.log(i);
     request('http://pokeapi.co/api/v2/pokemon/' + i.toString(),
